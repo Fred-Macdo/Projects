@@ -52,12 +52,12 @@ svm.pred <- predict(svm.fit, testset.df[,1:3])
 svm.tab <- table(pred = svm.pred, true = testset.df[,4])
 print(svm.tab)
 require(caret)
-confusionMatrix(svm.tab) #95% not bad
+confusionMatrix(svm.tab) 
 
 # Fit tuned SVM to entire training set
 svm.fit2 <- best.svm(Panel~., data = training.df, cost = 100)
 
-# Prepare Iraq map for predictions
+# Prepare map for predictions
 miramar.df <- data.frame(getValues(miramar2008))
 names(miramar.df) <- c("r", "g", "b")
 # Assign predicted values to target map
